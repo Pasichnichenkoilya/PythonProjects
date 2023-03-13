@@ -1,11 +1,5 @@
 from math import sin, atan
-from utils import get_float
-
-
-def validate(value, condition_lambda, error_msg):
-    while condition_lambda(value):
-        value = get_float(error_msg, '')
-    return value
+from utils import get_float, validate
 
 
 def equal_to_zero(value):
