@@ -1,25 +1,19 @@
+from utils import get_float, validate
+
 # Multi-paradigm programming languages Lab2 Illia Pasichnichenko IKM-221a
 print('Multi-paradigm programming languages Lab2')
 print('Illia Pasichnichenko IKM-221a')
 
 
-def get_float(var_name, default_message='Enter ', end_str=': '):
-    try:
-        user_input = float(input(default_message + var_name + end_str))
-        return user_input
-    except:
-        print('It must be a number')
-    return get_float(var_name, default_message, end_str)
+def equal_to_twelve_point_four(value):
+    return value == 12.4
 
 
-def validate(value, condition_lambda, error_msg):
-    while condition_lambda(value):
-        value = get_float(error_msg)
-    return value
-
+twelve_point_four_error = 'the value cannot be equal to 12.4, enter again'
 
 x = get_float('x')
-y = validate(get_float('y'), lambda _: _ == 12.4, 'the value cannot be equal to 12.4, enter again: ')
+y = get_float('y')
+y = validate(y, equal_to_twelve_point_four, twelve_point_four_error)
 z = get_float('z')
 
 result = (11 + 2 * x + 4.1) / (12.4 - y) + z
