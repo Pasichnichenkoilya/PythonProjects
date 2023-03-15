@@ -13,10 +13,11 @@ def validate(value, condition_lambda, error_msg):
     return value
 
 
-def get_int(var_name, default_message='Enter ', end_str=': '):
+def get_number(var_name, expected_type=float):
+    user_input = input(f'Enter {var_name}: ')
     try:
-        user_input = int(input(default_message + var_name + end_str))
-        return user_input
+        converted_input = expected_type(user_input)
+        return converted_input
     except ValueError:
-        print('It must be an integer')
-    return get_int(var_name, default_message, end_str)
+        print(f'The value must be of type {expected_type.__name__}')
+        get_number(var_name, expected_type)
