@@ -7,7 +7,7 @@ print('Illia Pasichnichenko IKM-221a')
 number = get_number('an integer', int)
 digits = 0
 
-while number > 0:
+while number:
     number //= 10
     digits += 1
 
