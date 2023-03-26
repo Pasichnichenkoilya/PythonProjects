@@ -20,4 +20,4 @@ def get_number(var_name, expected_type=float):
         return converted_input
     except ValueError:
         print(f'The value must be of type {expected_type.__name__}')
-        get_number(var_name, expected_type)
+        return get_number(var_name, expected_type)

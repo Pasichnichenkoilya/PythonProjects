@@ -9,11 +9,11 @@ def equal_to_twelve_point_four(value):
     return value == 12.4
 
 
-twelve_point_four_error = 'the value cannot be equal to 12.4, enter again'
+TWELVE_POINT_FOUR_ERROR = 'the value cannot be equal to 12.4, enter again'
 
 x = get_float('x')
 y = get_float('y')
-y = validate(y, equal_to_twelve_point_four, twelve_point_four_error)
+y = validate(y, equal_to_twelve_point_four, TWELVE_POINT_FOUR_ERROR)
 z = get_float('z')
 
 result = (11 + 2 * x + 4.1) / (12.4 - y) + z

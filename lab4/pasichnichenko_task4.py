@@ -1,5 +1,5 @@
-from utils import get_number
 from functools import reduce
+from utils import get_number
 
 
 def add(current_sum, current_number):
