@@ -7,5 +7,5 @@ names = ['Vladyslav Valeriyovych Ovsyannikov'] * 45
 print(', '.join(names))
 
 # 3.2
-result = (11 + 2 * 3 + 4.1) / (12.4 - 221.3) + 4.8
-print(result)
+RESULT = (11 + 2 * 3 + 4.1) / (12.4 - 221.3) + 4.8
+print(RESULT)
