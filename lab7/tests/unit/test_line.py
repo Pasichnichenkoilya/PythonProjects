@@ -1,5 +1,5 @@
-from ...point import Point
-from ...line import Line
+from lab7.line import Line
+from lab7.point import Point
 
 
 def test_get_length():

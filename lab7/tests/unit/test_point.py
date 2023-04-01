@@ -1,4 +1,4 @@
-from ...point import Point
+from lab7.point import Point
 
 
 def test_str():
