@@ -20,4 +20,4 @@ def get_number(message, expected_type):
         return converted_input
     except ValueError:
         print(f'The value must be of type {expected_type.__name__}')
-        get_number(message, expected_type)
+        return get_number(message, expected_type)

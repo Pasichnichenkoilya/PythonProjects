@@ -10,11 +10,11 @@ def equal_to_zero(value):
 print('Multi-paradigm programming languages Lab2')
 print('Illia Pasichnichenko IKM-221a')
 
-equal_to_zero_msg = 'the value cannot be equal to zero'
+EQUAL_TO_ZERO_MSG = 'the value cannot be equal to zero'
 
-a = validate(get_float('a'), equal_to_zero, equal_to_zero_msg)
-b = validate(get_float('b'), equal_to_zero, equal_to_zero_msg)
-c = validate(get_float('c'), equal_to_zero, equal_to_zero_msg)
+a = validate(get_float('a'), equal_to_zero, EQUAL_TO_ZERO_MSG)
+b = validate(get_float('b'), equal_to_zero, EQUAL_TO_ZERO_MSG)
+c = validate(get_float('c'), equal_to_zero, EQUAL_TO_ZERO_MSG)
 
 y = (sin(2 * a) / a - 3) + (atan(b) / c)
 print(y)
