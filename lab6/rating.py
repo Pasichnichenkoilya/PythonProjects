@@ -6,4 +6,5 @@ class Rating:
         self.rating = rating
 
     def __repr__(self):
-        return f"Rating(id={self.rating_id}, title={self.title}, year={self.year}, rating={self.rating})"
+        return f"Rating(id={self.rating_id}, title={self.title}," \
+               f"year={self.year}, rating={self.rating})"
