@@ -16,7 +16,7 @@ def check_winner(user_option, computer_option):
                 ('✂️', '🪨'): 'I Win!',
                 ('📃', '✂️'): 'I Win!',
                 ('🪨', '📃'): 'I Win!'}
-    
+
     print(outcomes[(user_option, computer_option)])
 
 
