@@ -1,0 +1,5 @@
+the number 1 is odd
+the number 2 is even
+the number 3 is odd
+the number 4 is even
+the number 5 is odd
