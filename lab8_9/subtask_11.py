@@ -1,5 +1,5 @@
-from utils import get_number
 import re
+from utils import get_number
 
 
 def to_binary(decimal_value: int):

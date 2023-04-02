@@ -8,12 +8,16 @@ options = ['🪨', '📃', '✂️']
 def check_winner(user_option, computer_option):
     if user_option == computer_option:
         print('Draw!')
-    elif user_option == '🪨' and computer_option == '✂️' or \
-            user_option == '📃' and computer_option == '🪨' or \
-            user_option == '✂️' and computer_option == '📃':
-        print('You Win!')
-    else:
-        print('I Win!')
+        return
+
+    outcomes = {('🪨', '✂️'): 'You Win!',
+                ('✂️', '📃'): 'You Win!',
+                ('📃', '🪨'): 'You Win!',
+                ('✂️', '🪨'): 'I Win!',
+                ('📃', '✂️'): 'I Win!',
+                ('🪨', '📃'): 'I Win!'}
+    
+    print(outcomes[(user_option, computer_option)])
 
 
 while True:
