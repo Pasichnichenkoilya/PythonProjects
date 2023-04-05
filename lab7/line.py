@@ -1,5 +1,5 @@
 import math as m
-from point import Point
+from lab7.point import Point
 
 
 class Line:
