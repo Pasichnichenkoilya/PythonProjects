@@ -23,6 +23,11 @@ def test_get_length_projection_y():
     assert line.get_length_projection_y() == 3
 
 
-def test_str():
+def test_line_str():
     line = Line(Point(132, 212), Point(112, 335))
     assert str(line) == 'Line: [Point(x: 132, y: 212), Point(x: 112, y: 335)]'
+
+
+def test_point_str():
+    point = Point(123, 321)
+    assert str(point) == 'Point(x: 123, y: 321)'
