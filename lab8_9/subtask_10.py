@@ -11,5 +11,6 @@ while True:
         print(f'Coordinate {letter}{number} does not exist')
         continue
 
-    square_color = 'black' if not letters_parity[letter] % 2 else 'white'
+    is_white = letters_parity[letter] % 2 if number % 2 else not letters_parity[letter]
+    square_color = 'white' if is_white else 'black'
     print(f'{letter}{number} square is {square_color}')
