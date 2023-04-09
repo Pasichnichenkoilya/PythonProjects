@@ -1,16 +1,17 @@
-from utils import get_number
+import re
 
-letters = 'abcdefgh'
-letters_parity = {letter: i % 2 for i, letter in enumerate(letters)}
+letters_parity = {letter: i % 2 for i, letter in enumerate('abcdefgh')}
+coord_pattern = '^[a-h][1-8]$'
 
 while True:
-    letter = input('Enter letter[a-h]: ').strip()[0]
-    number = get_number('Enter number[1-8]: ', int)
+    user_input = input('Enter square coordinate, example - a1, b6, h8: ').strip()
 
-    if letter not in letters or number < 1 or number > 8:
-        print(f'Coordinate {letter}{number} does not exist')
+    if not re.match(coord_pattern, user_input):
+        print(f'Coordinate {user_input} does not exist')
         continue
 
+    letter = user_input[0]
+    number = int(user_input[1])
+
     is_white = letters_parity[letter] % 2 if number % 2 else not letters_parity[letter]
-    square_color = 'white' if is_white else 'black'
-    print(f'{letter}{number} square is {square_color}')
+    print(f'{user_input} square is {"white" if is_white else "black"}')
