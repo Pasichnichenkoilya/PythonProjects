@@ -13,5 +13,5 @@ while True:
     letter = user_input[0]
     number = int(user_input[1])
 
-    is_white = letters_parity[letter] % 2 if number % 2 else not letters_parity[letter]
+    is_white = letters_parity[letter] if number % 2 else not letters_parity[letter]
     print(f'{user_input} square is {"white" if is_white else "black"}')
