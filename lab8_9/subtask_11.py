@@ -2,7 +2,7 @@ import re
 from utils import get_number
 
 
-def to_binary(decimal_value: int):
+def to_binary(decimal_value: int) -> str:
     binary = ''
     while decimal_value:
         binary += str(decimal_value % 2)
@@ -10,7 +10,7 @@ def to_binary(decimal_value: int):
     return binary[::-1]
 
 
-def to_decimal(binary_value: str):
+def to_decimal(binary_value: str) -> float:
     decimal = 0
     power = 0
     for i in reversed(range(len(binary_value))):

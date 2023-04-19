@@ -1,41 +1,44 @@
-from utils import get_number
+from utils import get_number, get_reg_ex_input
 
 
-def add(left_operand, right_operand):
-    return left_operand + right_operand
+class BasicMathOperations:
+
+    @staticmethod
+    def add(left_operand, right_operand):
+        return left_operand + right_operand
+
+    @staticmethod
+    def diff(left_operand, right_operand):
+        return left_operand - right_operand
+
+    @staticmethod
+    def divide(left_operand, right_operand):
+        return left_operand / right_operand
+
+    @staticmethod
+    def multiply(left_operand, right_operand):
+        return left_operand * right_operand
+
+    @staticmethod
+    def mod(left_operand, right_operand):
+        return left_operand % right_operand
+
+    @staticmethod
+    def power(left_operand, right_operand):
+        return left_operand ** right_operand
+
+    @staticmethod
+    def div(left_operand, right_operand):
+        return left_operand // right_operand
 
 
-def diff(left_operand, right_operand):
-    return left_operand - right_operand
-
-
-def divide(left_operand, right_operand):
-    return left_operand / right_operand
-
-
-def multiply(left_operand, right_operand):
-    return left_operand * right_operand
-
-
-def mod(left_operand, right_operand):
-    return left_operand % right_operand
-
-
-def power(left_operand, right_operand):
-    return left_operand ** right_operand
-
-
-def div(left_operand, right_operand):
-    return left_operand // right_operand
-
-
-operations = {'+': add,
-              '-': diff,
-              '/': divide,
-              '*': multiply,
-              'mod': mod,
-              'pow': power,
-              'div': div}
+operations = {'+': BasicMathOperations.add,
+              '-': BasicMathOperations.diff,
+              '/': BasicMathOperations.divide,
+              '*': BasicMathOperations.multiply,
+              'mod': BasicMathOperations.mod,
+              'pow': BasicMathOperations.power,
+              'div': BasicMathOperations.div}
 
 while True:
     a = get_number('Enter a: ', float)
@@ -45,10 +48,8 @@ while True:
         print(f'operation {operation} not found, try again')
         continue
 
-    b = get_number('Enter b: ', float)
-    if operation == '/' or operation == 'div' and b == 0:
-        print('cannot divide by zero')
-        continue
+    not_zero_numbers = r'^[1-9][0-9]*$'
+    b = float(get_reg_ex_input('Enter b: ', not_zero_numbers, 'invalid input, enter number (not equal to 0)'))
 
     print(f'{a} {operation} {b} = {operations[operation](a, b)}')
     break

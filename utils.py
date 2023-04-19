@@ -1,3 +1,6 @@
+import re
+
+
 def get_float(var_name, default_message='Enter ', end_str=': '):
     try:
         user_input = float(input(default_message + var_name + end_str))
@@ -21,3 +24,14 @@ def get_number(message, expected_type):
     except ValueError:
         print(f'The value must be of type {expected_type.__name__}')
         return get_number(message, expected_type)
+
+
+def get_reg_ex_input(message, pattern, err_message='invalid input, try again', ):
+    while True:
+        user_input = input(message)
+
+        if not re.match(pattern, user_input):
+            print(err_message)
+            continue
+
+        return user_input
