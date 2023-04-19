@@ -18,6 +18,7 @@ def check_winner(user_option, computer_option):
                 ('🪨', '📃'): 'I Win!'}
 
     print(outcomes[(user_option, computer_option)])
+    return None
 
 
 while True:

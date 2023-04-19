@@ -28,7 +28,8 @@ def get_days_or_default(month_name: str, month_year: int):
 input_pattern = r'^[A-Za-z]+\s(19\d\d|20\d\d|2[4-9]\d\d|3000)$'
 
 while True:
-    user_input = get_reg_ex_input('Enter month name and year(1900-3000) separated with a space: ', input_pattern)
+    user_input = get_reg_ex_input('Enter month name and year(1900-3000) separated with a space: ',
+                                  input_pattern)
 
     month, year = user_input.split(' ')
     year = int(year)

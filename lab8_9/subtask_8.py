@@ -49,7 +49,8 @@ while True:
         continue
 
     not_zero_numbers = r'^[1-9][0-9]*$'
-    b = float(get_reg_ex_input('Enter b: ', not_zero_numbers, 'invalid input, enter number (not equal to 0)'))
+    b = float(get_reg_ex_input('Enter b: ', not_zero_numbers,
+                               'invalid input, enter number (not equal to 0)'))
 
     print(f'{a} {operation} {b} = {operations[operation](a, b)}')
     break
