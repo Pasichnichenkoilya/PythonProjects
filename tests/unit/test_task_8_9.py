@@ -11,9 +11,10 @@ import lab8_9.subtask_10
 
 
 @pytest.mark.parametrize('input_param, expected',
-                         [(['Sophia', 'Madison', 'Admin'], ['Sophia, thank you for logging in again..',
-                                                            'Madison, thank you for logging in again..',
-                                                            'Admin, I hope you\'re well']),
+                         [(['Sophia', 'Madison', 'Admin'],
+                           ['Sophia, thank you for logging in again..',
+                            'Madison, thank you for logging in again..',
+                            'Admin, I hope you\'re well']),
                           ([], ['We need to find some users!'])])
 def test_subtask_1(input_param, expected):
     result = lab8_9.subtask_1.get_greetings(input_param)
@@ -28,7 +29,8 @@ def test_subtask_2(input_param, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize('input_param, expected', [(list(range(1, 5)), ['1st', '2nd', '3rd', '4th', ])])
+@pytest.mark.parametrize('input_param, expected', [(list(range(1, 5)),
+                                                    ['1st', '2nd', '3rd', '4th', ])])
 def test_subtask_3(input_param, expected):
     result = lab8_9.subtask_3.get_number_names(input_param)
     assert result == expected
