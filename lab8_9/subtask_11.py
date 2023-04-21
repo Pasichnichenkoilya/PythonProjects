@@ -1,5 +1,5 @@
 import re
-from utils import get_number
+from utils import get_reg_ex_input
 
 
 def to_binary(decimal_value: int) -> str:
@@ -12,26 +12,23 @@ def to_binary(decimal_value: int) -> str:
 
 def to_decimal(binary_value: str) -> float:
     decimal = 0
-    power = 0
-    for i in reversed(range(len(binary_value))):
-        digit = int(binary_value[i])
-        decimal += digit * 2 ** power
-        power += 1
+    for digit in binary_value:
+        decimal = decimal * 2 + int(digit)
     return decimal
 
 
-covert_to_binary = get_number('Enter 0 to convert decimal to binary,'
-                              'any other value to convert binary to decimal: ', int)
-
-if covert_to_binary:
-    binary_pattern = r'^[01]+$'
+if __name__ == '__main__':
     while True:
-        binary_string = input('Enter binary string: ')
-        if not re.match(binary_pattern, binary_string):
-            print('binary string can only contain 1s and 0s, try again')
+        MESSAGE = 'Enter decimal/binary value (add "b" at the end to indicate binary): '
+        # includes only numbers and optional 'b' symbol at the end
+        NUMBERS_PATTERN = r'^\d+[b]?$'
+
+        user_input = get_reg_ex_input(MESSAGE, NUMBERS_PATTERN)
+        from_binary = user_input[-1].lower() == 'b'
+
+        if from_binary and not re.match(r'^[01]+$', user_input[:-1]):
+            print('binary string can only contain 1s and 0s')
             continue
-        print(f'{binary_string} in decimal is {to_decimal(binary_string)}')
-        break
-else:
-    decimal_number = get_number('Enter decimal number: ', int)
-    print(f'{decimal_number} in binary is {to_binary(decimal_number)}')
+
+        converted_value = to_decimal(user_input[:-1]) if from_binary else to_binary(int(user_input))
+        print(f'{user_input} in {"decimal" if from_binary else "binary"} is {converted_value}')

@@ -1,9 +1,17 @@
 from utils import get_number
 
-number = 1
-numbers_sum = 0
-while number:
-    number = get_number('Enter an integer(0 to exit): ', int)
-    numbers_sum += number
 
-print(f'sum = {numbers_sum}')
+def get_numbers_sum(numbers: list[int]) -> int:
+    return sum(numbers)
+
+
+if __name__ == '__main__':
+    input_numbers = []
+
+    while True:
+        number = get_number('Enter an integer(0 to exit): ', int)
+        if number == 0:
+            break
+        input_numbers.append(number)
+
+    print(get_numbers_sum(input_numbers))
