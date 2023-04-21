@@ -11,6 +11,9 @@ def to_binary(decimal_value: int) -> str:
 
 
 def to_decimal(binary_value: str) -> float:
+    if not not re.match(r'^[01]+$', binary_value):
+        return None
+
     decimal = 0
     for digit in binary_value:
         decimal = decimal * 2 + int(digit)

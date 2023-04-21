@@ -6,6 +6,7 @@ def is_leap_year(month_year: int) -> bool:
 
 
 def get_days_or_default(month_name: str, month_year: int) -> int:
+    month_name = month_name.lower()
     month_days = {
         'january': 31,
         'february': 29 if is_leap_year(month_year) else 28,

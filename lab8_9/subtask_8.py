@@ -23,6 +23,8 @@ class BasicMathOperations:
 
     @staticmethod
     def mod(left_operand, right_operand):
+        if right_operand == 0:
+            return None
         return left_operand % right_operand
 
     @staticmethod
@@ -53,7 +55,7 @@ if __name__ == '__main__':
             print(f'operation {operation} not found, try again')
             continue
 
-        if operation in ('/', 'div'):
+        if operation in ('/', 'div', 'mod'):
             not_zero_numbers = r'^-?(?!0+$)\d+(?:\.\d+)?$'
             b = float(get_reg_ex_input('Enter b: ', not_zero_numbers,
                                        'cannot divide by zero, enter valid number:'))

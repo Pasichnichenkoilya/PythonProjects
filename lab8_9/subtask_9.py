@@ -12,7 +12,7 @@ def get_banknote_person(banknote_value: int) -> str:
                  200: 'Lesya Ukrainka',
                  500: 'Grigory Skovoroda',
                  1000: 'Vladimir Vernadsky'}
-    return banknotes[number] if banknote_value in banknotes else None
+    return banknotes[banknote_value] if banknote_value in banknotes else None
 
 
 if __name__ == '__main__':
