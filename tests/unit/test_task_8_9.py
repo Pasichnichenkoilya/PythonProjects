@@ -1,4 +1,6 @@
+from unittest.mock import patch
 import pytest
+
 import lab8_9.subtask_1
 import lab8_9.subtask_2
 import lab8_9.subtask_3
@@ -8,6 +10,8 @@ import lab8_9.subtask_7
 import lab8_9.subtask_8
 import lab8_9.subtask_9
 import lab8_9.subtask_10
+import lab8_9.subtask_11
+import lab8_9.subtask_12
 
 
 @pytest.mark.parametrize('input_param, expected',
@@ -50,10 +54,19 @@ def test_subtask_5_6_is_leap_year(input_param, expected):
 
 
 @pytest.mark.parametrize('input_param, expected', [(('mAy', 1984), 31),
-                                                   (('February', 2024), 29),
-                                                   (('augustember', 2005), None),
+                                                   (('February', 2024), 29)])
+@patch('lab8_9.subtask_5_6.is_leap_year')
+def test_subtask_5_6_get_days_or_default_leap_years(mock, input_param, expected):
+    mock.return_value = True
+    result = lab8_9.subtask_5_6.get_days_or_default(input_param[0], input_param[1])
+    assert result == expected
+
+
+@pytest.mark.parametrize('input_param, expected', [(('augustember', 2005), None),
                                                    (('february', 2003), 28)])
-def test_subtask_5_6_get_days_or_default(input_param, expected):
+@patch('lab8_9.subtask_5_6.is_leap_year')
+def test_subtask_5_6_get_days_or_default_not_leap_years(mock, input_param, expected):
+    mock.return_value = False
     result = lab8_9.subtask_5_6.get_days_or_default(input_param[0], input_param[1])
     assert result == expected
 
@@ -120,4 +133,24 @@ def test_subtask_9(input_param, expected):
                                                    (('23', 22), None)])
 def test_subtask_10(input_param, expected):
     result = lab8_9.subtask_10.get_square_color(input_param[0], input_param[1])
+    assert result == expected
+
+
+@pytest.mark.parametrize('input_param, expected', [(16, '10000')])
+def test_subtask_11_to_binary(input_param, expected):
+    result = lab8_9.subtask_11.to_binary(input_param)
+    assert result == expected
+
+
+@pytest.mark.parametrize('input_param, expected', [('100110', 38)])
+def test_subtask_11_to_decimal(input_param, expected):
+    result = lab8_9.subtask_11.to_decimal(input_param)
+    assert result == expected
+
+
+@pytest.mark.parametrize('input_param, expected', [(('🪨', '🪨'), 'Draw!'),
+                                                   (('✂️', '📃'), 'You Win!'),
+                                                   (('🤨', '📃'), None)])
+def test_subtask_12(input_param, expected):
+    result = lab8_9.subtask_12.check_winner(input_param[0], input_param[1])
     assert result == expected
