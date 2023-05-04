@@ -129,4 +129,7 @@ dmypy.json
 .pyre/
 
 # Idea project settings
-/.idea
+.idea/
+.idea/Labs.iml
+.idea/misc.xml
+/.idea/
