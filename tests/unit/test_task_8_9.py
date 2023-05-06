@@ -53,20 +53,13 @@ def test_subtask_5_6_is_leap_year(input_param, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize('input_param, expected', [(('mAy', 1984), 31),
-                                                   (('February', 2024), 29)])
+@pytest.mark.parametrize('input_param, expected, mock_value', [(('mAy', 1984), 31, True),
+                                                               (('February', 2024), 29, True),
+                                                               (('augustember', 2005), None, False),
+                                                               (('february', 2003), 28, False)])
 @patch('lab8_9.subtask_5_6.is_leap_year')
-def test_subtask_5_6_get_days_or_default_leap_years(mock, input_param, expected):
-    mock.return_value = True
-    result = lab8_9.subtask_5_6.get_days_or_default(input_param[0], input_param[1])
-    assert result == expected
-
-
-@pytest.mark.parametrize('input_param, expected', [(('augustember', 2005), None),
-                                                   (('february', 2003), 28)])
-@patch('lab8_9.subtask_5_6.is_leap_year')
-def test_subtask_5_6_get_days_or_default_not_leap_years(mock, input_param, expected):
-    mock.return_value = False
+def test_subtask_5_6_get_days_or_default_not_leap_years(mock, input_param, expected, mock_value):
+    mock.return_value = mock_value
     result = lab8_9.subtask_5_6.get_days_or_default(input_param[0], input_param[1])
     assert result == expected
 

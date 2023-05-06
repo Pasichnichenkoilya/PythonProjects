@@ -38,6 +38,14 @@ class BasicMathOperations:
         return left_operand // right_operand
 
 
+def get_valid_number(operation):
+    if operation in ('/', 'div', 'mod'):
+        not_zero_numbers = r'^-?(?!0+$)\d+(?:\.\d+)?$'
+        return float(get_reg_ex_input('Enter b: ', not_zero_numbers,
+                                      'cannot divide by zero, enter valid number:'))
+    return get_number('Enter b: ', float)
+
+
 if __name__ == '__main__':
     operations = {'+': BasicMathOperations.add,
                   '-': BasicMathOperations.diff,
@@ -49,18 +57,13 @@ if __name__ == '__main__':
 
     while True:
         a = get_number('Enter a: ', float)
-        operation = input('Enter operation [+, -, /, *, mod, pow, div]: ').strip()
+        input_operation = input('Enter operation [+, -, /, *, mod, pow, div]: ').strip()
 
-        if operation not in operations:
-            print(f'operation {operation} not found, try again')
+        if input_operation not in operations:
+            print(f'operation {input_operation} not found, try again')
             continue
 
-        if operation in ('/', 'div', 'mod'):
-            not_zero_numbers = r'^-?(?!0+$)\d+(?:\.\d+)?$'
-            b = float(get_reg_ex_input('Enter b: ', not_zero_numbers,
-                                       'cannot divide by zero, enter valid number:'))
-        else:
-            b = get_number('Enter b: ', float)
+        b = get_valid_number(input_operation)
 
-        print(f'{a} {operation} {b} = {operations[operation](a, b)}')
+        print(f'{a} {input_operation} {b} = {operations[input_operation](a, b)}')
         break

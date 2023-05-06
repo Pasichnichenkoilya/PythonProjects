@@ -19,7 +19,7 @@ if __name__ == '__main__':
     while True:
         number = get_number('Enter banknote value: ', int)
         name = get_banknote_person(number)
-        if name == 'None':
+        if name is None:
             print(f'Banknote with value {number} does not exist')
             continue
         print(name)
