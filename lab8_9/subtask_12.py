@@ -1,22 +1,19 @@
 import random
 from utils import get_reg_ex_input
 
+OUTCOMES = {('🪨', '🪨'): 'Draw!',
+            ('✂️', '✂️'): 'Draw!',
+            ('📃', '📃'): 'Draw!',
+            ('🪨', '✂️'): 'You Win!',
+            ('✂️', '📃'): 'You Win!',
+            ('📃', '🪨'): 'You Win!',
+            ('✂️', '🪨'): 'I Win!',
+            ('📃', '✂️'): 'I Win!',
+            ('🪨', '📃'): 'I Win!'}
+
 
 def check_winner(user_option, computer_option):
-    outcomes = {('🪨', '🪨'): 'Draw!',
-                ('✂️', '✂️'): 'Draw!',
-                ('📃', '📃'): 'Draw!',
-                ('🪨', '✂️'): 'You Win!',
-                ('✂️', '📃'): 'You Win!',
-                ('📃', '🪨'): 'You Win!',
-                ('✂️', '🪨'): 'I Win!',
-                ('📃', '✂️'): 'I Win!',
-                ('🪨', '📃'): 'I Win!'}
-
-    if (user_option, computer_option) not in outcomes:
-        return None
-
-    return outcomes[(user_option, computer_option)]
+    return OUTCOMES.get((user_option, computer_option), None)
 
 
 if __name__ == '__main__':
