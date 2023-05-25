@@ -1,18 +1,19 @@
 from utils import get_number
 
+BANKNOTES = {1: 'Vladimir the Great',
+             2: 'Yaroslav the Wise',
+             5: 'Bohdan Khmelnytsky',
+             10: 'Ivan Mazepa',
+             20: 'Ivan Franko',
+             50: 'Mikhail Grushevsky',
+             100: 'Taras Shevchenko',
+             200: 'Lesya Ukrainka',
+             500: 'Grigory Skovoroda',
+             1000: 'Vladimir Vernadsky'}
+
 
 def get_banknote_person(banknote_value: int) -> str:
-    banknotes = {1: 'Vladimir the Great',
-                 2: 'Yaroslav the Wise',
-                 5: 'Bohdan Khmelnytsky',
-                 10: 'Ivan Mazepa',
-                 20: 'Ivan Franko',
-                 50: 'Mikhail Grushevsky',
-                 100: 'Taras Shevchenko',
-                 200: 'Lesya Ukrainka',
-                 500: 'Grigory Skovoroda',
-                 1000: 'Vladimir Vernadsky'}
-    return banknotes[banknote_value] if banknote_value in banknotes else None
+    return BANKNOTES.get(banknote_value, None)
 
 
 if __name__ == '__main__':
